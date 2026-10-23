@@ -40,7 +40,7 @@
     "url": "https://github.com/zann06/MindMesh/issues"
   },
   "engines": {
-    "node": ">=22",
+    "node": ">=24",
     "npm": ">=10"
   },
   "dependencies": {

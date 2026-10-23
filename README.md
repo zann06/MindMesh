@@ -95,7 +95,7 @@ See [docs/ai-integration.md](docs/ai-integration.md) for the full trust model an
 
 Requirements:
 
-- Node.js 22 or newer
+- Node.js 24 or newer
 - npm 10 or newer
 - A modern browser with IndexedDB, Web Workers, and ES2022 support
 
