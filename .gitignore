@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.vite/
+*.local
+.env
+.env.*
+!.env.example
+.mindmesh-bridge-token
+.DS_Store
+Thumbs.db
+*.log
