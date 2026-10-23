@@ -1,5 +1,12 @@
 # MindMesh
 
+[![CI](https://github.com/zann06/MindMesh/actions/workflows/ci.yml/badge.svg)](https://github.com/zann06/MindMesh/actions/workflows/ci.yml)
+[![Deploy](https://github.com/zann06/MindMesh/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/zann06/MindMesh/actions/workflows/deploy-pages.yml)
+[![License](https://img.shields.io/github/license/zann06/MindMesh)](LICENSE)
+[![Live demo](https://img.shields.io/badge/demo-live-7ebaa3)](https://zann06.github.io/MindMesh/)
+
+**Live demo:** <https://zann06.github.io/MindMesh/>
+
 MindMesh turns what you read into an explorable, evidence-backed knowledge universe. Import a PDF or Markdown document, shape the concepts and relationships you care about, then practice them with local quizzes. Projects live in your browser. AI is optional and off by default.
 
 MindMesh is pre-1.0 software. It is intended for local study and self-directed experimentation, not for regulated records, collaboration, or unattended production use.
@@ -62,6 +69,7 @@ Refresh these captures after UI changes with `npm run screenshots`.
 
 - English and Indonesian throughout the app, including quiz questions, explanations, warnings, toasts, tooltips, and accessibility labels.
 - A persistent language dropdown in the header with keyboard navigation and focus handling; the choice is stored locally and `document.documentElement.lang` is kept in sync.
+- `Ctrl+K` (or `Cmd+K`) focuses the global search field from anywhere in the app.
 - A small interactive 3D orb in each page header: drag to rotate, click to pulse. It is lazy-loaded, respects reduced WebGL availability, and has a static CSS fallback with a localized accessible label.
 - Accessible list views, labelled controls, and keyboard-reachable alternatives for the 3D views.
 
@@ -114,6 +122,14 @@ npm run preview
 ```
 
 The production build is static and can be hosted on any static file host. It requires no MindMesh server.
+
+### Hosting
+
+The repository includes a GitHub Pages workflow at `.github/workflows/deploy-pages.yml`. On every push to `main` it builds with `VITE_BASE_PATH` set to the repository name, then copies `index.html` to `404.html` so `BrowserRouter` deep links resolve on Pages.
+
+To enable it, open **Settings → Pages → Build and deployment** and set the source to **GitHub Actions**, then push to `main`. The live demo is at <https://zann06.github.io/MindMesh/>.
+
+For another static host, run `npm run build` and serve `dist/`. If the app is served from a subpath, set `VITE_BASE_PATH` before building, for example `VITE_BASE_PATH=/mindmesh/ npm run build`. Browsers still need an SPA fallback that serves `index.html` for unknown paths.
 
 ## Optional OpenCode bridge
 

@@ -23,7 +23,7 @@ test('loads the sample and supports the core local workflow', async ({ page }) =
     .click();
   await expect(page.getByText('Knowledge pulse')).toBeVisible();
   await expect(page.locator('canvas').first()).toBeVisible();
-  await page.getByRole('link', { name: 'Evidence-first knowledge' }).first().click();
+  await page.getByRole('link', { name: /Knowledge graph/ }).first().click();
   await expect(page.getByText('Spatial neighborhood')).toBeVisible();
   await expect(page.locator('canvas').first()).toBeVisible();
 
@@ -89,6 +89,31 @@ test('loads the sample and supports the core local workflow', async ({ page }) =
   await expect(page.getByText('Dashboard', { exact: true }).first()).toBeVisible();
 
   expect(errors).toEqual([]);
+});
+
+test('language dropdown works with the keyboard', async ({ page }) => {
+  const errors = collectPageErrors(page);
+  await page.goto('/');
+  const trigger = page.getByRole('button', { name: 'Language' });
+  await trigger.focus();
+  await trigger.press('ArrowDown');
+  await expect(page.getByRole('option', { name: 'English' })).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await expect(page.getByRole('option', { name: 'Indonesian' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('listbox')).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+  expect(errors).toEqual([]);
+});
+
+test('focuses the global search with the keyboard shortcut', async ({ page }) => {
+  await page.goto('/');
+  const search = page.getByRole('search').getByRole('textbox', {
+    name: 'Search concepts and sources',
+  });
+  await expect(search).toBeVisible();
+  await page.keyboard.press('Control+K');
+  await expect(search).toBeFocused();
 });
 
 test('generates a local quiz, records an attempt, and shows results', async ({ page }) => {

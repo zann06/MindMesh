@@ -1,0 +1,94 @@
+name: Bug report
+description: Report a reproducible problem in MindMesh.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. Do not include private document text, provider keys, bridge tokens, or other secrets.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: A clear description of the problem.
+      placeholder: When I open a PDF and select a passage, the concept editor...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the smallest sequence that still shows the problem.
+      placeholder: |
+        1. Load the sample project
+        2. Open Documents
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the full error message if one is shown.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Dashboard or welcome
+        - Documents and import
+        - Knowledge graph or universe
+        - Learning and quizzes
+        - Search
+        - Settings, AI, or bridge
+        - Data, export, or import
+        - Accessibility or language
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: MindMesh version or commit
+      placeholder: 0.1.0 or f37c779
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and operating system
+      placeholder: Chrome 131 on Windows 11
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or additional context
+      description: Drag images here if they help explain the problem. Remove private data first.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I removed private document text, credentials, and tokens from this report.
+          required: true

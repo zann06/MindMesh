@@ -91,6 +91,7 @@ function GlobalSearch() {
   const navigate = useNavigate();
   const location = useLocation();
   const c = useCopy(copy);
+  const inputRef = useRef<HTMLInputElement>(null);
   const params = new URLSearchParams(location.search);
   const [value, setValue] = useState(location.pathname === '/search' ? params.get('q') ?? '' : '');
 
@@ -101,6 +102,17 @@ function GlobalSearch() {
         : '',
     );
   }, [location.pathname, location.search]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!(event.metaKey || event.ctrlKey) || event.key.toLowerCase() !== 'k') return;
+      event.preventDefault();
+      inputRef.current?.focus();
+      inputRef.current?.select();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
@@ -115,14 +127,18 @@ function GlobalSearch() {
         aria-hidden="true"
       />
       <input
+        ref={inputRef}
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder={c.searchPlaceholder}
         aria-label={c.searchLabel}
         className="h-9 w-full rounded-lg border border-line bg-[#0d0f14]/70 pl-9 pr-14 text-xs text-bright placeholder:text-slate-500 transition-[border-color,background-color,box-shadow] focus:border-cyan-400/50 focus:bg-[#13161c] focus:shadow-[0_0_0_3px_rgba(126,186,163,0.1)] focus:outline-none"
       />
-      <kbd className="pointer-events-none absolute right-2.5 top-1/2 hidden -translate-y-1/2 rounded border border-line bg-white/[0.04] px-1.5 py-0.5 text-[9px] text-slate-500 sm:block">
-        Enter
+      <kbd
+        aria-hidden="true"
+        className="pointer-events-none absolute right-2.5 top-1/2 hidden -translate-y-1/2 rounded border border-line bg-white/[0.04] px-1.5 py-0.5 text-[9px] text-slate-500 sm:block"
+      >
+        Ctrl K
       </kbd>
     </form>
   );

@@ -165,6 +165,8 @@ function StartupSplash({ error }: { error?: string | null }) {
   );
 }
 
+const routerBase = import.meta.env.BASE_URL.replace(/\/+$/, '') || '/';
+
 export function App() {
   const init = useWorkspaceStore((state) => state.init);
   const initialized = useWorkspaceStore((state) => state.initialized);
@@ -182,7 +184,7 @@ export function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBase}>
       <Routes>
         <Route element={<AppShell />}>
           <Route index element={<DashboardPage />} />

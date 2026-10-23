@@ -1,0 +1,56 @@
+name: Feature request
+description: Suggest an improvement that fits MindMesh's local-first scope.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        MindMesh is deliberately local-first and AI-optional. Proposals should keep core study features working without an account, backend, or network request.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the need or friction, not only the proposed implementation.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Explain the expected behavior and where it belongs in the interface.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Documents and import
+        - Knowledge graph or universe
+        - Learning and quizzes
+        - Search
+        - Data portability
+        - Accessibility or language
+        - Developer experience or docs
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This can work without an account, application backend, or network request.
+          required: true
+        - label: This keeps AI optional and off by default.
+          required: true

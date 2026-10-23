@@ -147,6 +147,23 @@ npx playwright test
 6. Confirm the results page and the recorded attempt.
 7. Assert no uncaught page errors.
 
+### Language dropdown
+
+1. Focus the language trigger and open it with the keyboard.
+2. Move between English and Indonesian with the arrow keys.
+3. Close with Escape.
+4. Confirm focus returns to the trigger and no page errors occur.
+
+### Search shortcut
+
+1. Open the app and wait for the header search field.
+2. Press `Ctrl+K` (or `Cmd+K`).
+3. Confirm the search field receives focus.
+
+### Demo screenshots
+
+`npm run screenshots` captures the bilingual desktop and mobile screens used in the README. The screenshot test is skipped during normal runs.
+
 ## Known non-fatal warning
 
 Vitest may print:
