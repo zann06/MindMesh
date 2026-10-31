@@ -10,11 +10,14 @@ All notable changes to MindMesh are documented here. The project follows semanti
 - Interactive 3D feature orb in every page header, with drag rotation, click pulse, lazy loading, WebGL fallback, and localized accessible labels
 - Demo screenshots in `docs/screenshots/` and an opt-in `npm run screenshots` capture script
 - Unit coverage for Indonesian quiz generation and E2E assertions for feature orbs
+- An `.editorconfig` with cross-editor formatting defaults
+- Open Graph and Twitter Card metadata so shared links render a preview card
 
 ### Changed
 
 - Quiz generation now receives the active language and produces localized content
 - README now documents language support, feature orbs, and the screenshot workflow
+- CONTRIBUTING now states the actual Node.js 24 requirement matching `engines` and CI
 
 ## [0.1.0] - 2026-10-20
 
