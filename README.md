@@ -257,7 +257,7 @@ A more detailed walkthrough is in [docs/architecture.md](docs/architecture.md).
 
 MindMesh cannot protect against browser extensions, device backups, browser sync, malware, or other software with access to your browser profile. Browser storage can be evicted. Export backups for anything important.
 
-Read [the in-app privacy model](src/features/about/privacy-page.tsx) and [SECURITY.md](SECURITY.md).
+Read [the in-app privacy model](src/features/about/privacy-page.tsx) and the [security policy](.github/SECURITY.md). To report a vulnerability, use the **Report a vulnerability** button on the repository's Security tab so it stays private instead of filing a public issue.
 
 ## Limitations
 
@@ -270,7 +270,13 @@ Read [the in-app privacy model](src/features/about/privacy-page.tsx) and [SECURI
 
 ## Contributing
 
-Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before opening a change. For security issues, follow [SECURITY.md](SECURITY.md) instead of filing a public issue.
+Contributions are welcome. Read [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) for the full guidance and [.github/CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md) for participation rules. The short version:
+
+- Run `npm run verify` before requesting review, and add or update tests when behavior changes.
+- Keep core features local-first: no accounts, no backend, no network requests. AI stays optional and off by default.
+- Keep domain logic out of React components and follow the existing feature-folder layout.
+- Update documentation when behavior, commands, or security properties change, and record notable changes in the [changelog](.github/CHANGELOG.md).
+- For security issues, follow the [security policy](.github/SECURITY.md) instead of filing a public issue.
 
 ## License
 

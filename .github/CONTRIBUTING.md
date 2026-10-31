@@ -4,7 +4,7 @@ Thanks for helping improve MindMesh. This project is pre-1.0; changes should fav
 
 ## Before you start
 
-- Read [README.md](README.md), [docs/architecture.md](docs/architecture.md), and [docs/ai-integration.md](docs/ai-integration.md).
+- Read [README.md](../README.md), [docs/architecture.md](../docs/architecture.md), and [docs/ai-integration.md](../docs/ai-integration.md).
 - For a security issue, follow [SECURITY.md](SECURITY.md) instead of opening a public issue.
 - For a large change, open a design discussion first so the data and privacy implications can be reviewed.
 
@@ -124,7 +124,7 @@ These are product requirements, not nice-to-haves:
 
 ## License
 
-By contributing, you agree that your contribution is licensed under the Apache License 2.0. See [LICENSE](LICENSE).
+By contributing, you agree that your contribution is licensed under the Apache License 2.0. See [LICENSE](../LICENSE).
 
 ## Code of conduct
 
