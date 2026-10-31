@@ -12,7 +12,7 @@ Thanks for helping improve MindMesh. This project is pre-1.0; changes should fav
 
 Requirements:
 
-- Node.js 22 or newer
+- Node.js 24 or newer (see `.nvmrc` and the `engines` field in `package.json`)
 - npm 10 or newer
 
 ```bash
